@@ -17,7 +17,12 @@ class LoginController extends Controller
         "error" => "Invalid credentials"
       ], 400);
     }
-    return $user->createToken($user->email)->plainTextToken;
+    $token = $user->createToken($user->email)->plainTextToken;
+
+    return response()->json([
+      "user" => $user,
+      "token" => $token
+    ]);
   }
   public function register(Request $request)
   {

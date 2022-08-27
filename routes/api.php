@@ -1,7 +1,9 @@
 <?php
 
+use App\Http\Controllers\EmployeeController;
 use App\Http\Controllers\TaskController;
 use App\Http\Controllers\LoginController;
+use App\Http\Controllers\TypeController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -21,4 +23,6 @@ Route::post('register', [LoginController::class, 'register']);
 Route::middleware('auth:sanctum')->group(function () {
     Route::post('logout', [LoginController::class, 'logout']);
     Route::apiResource('tasks', TaskController::class);
+    Route::get('employees', [EmployeeController::class, 'index']);
+    Route::get('types', [TypeController::class, 'index']);
 });

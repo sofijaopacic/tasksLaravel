@@ -17,14 +17,14 @@ class Task extends Model
         'employee_id'
     ];
 
-    protected $with = ['employee', 'task'];
+    protected $with = ['employee', 'task_type'];
 
     public function employee()
     {
         return $this->belongsTo(Employee::class);
     }
 
-    public function type()
+    public function task_type()
     {
         return $this->belongsTo(TaskType::class);
     }
